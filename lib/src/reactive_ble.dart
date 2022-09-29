@@ -9,12 +9,8 @@ import 'package:next_ble/src/debug_logger.dart';
 import 'package:next_ble/src/device_connector.dart';
 import 'package:next_ble/src/device_scanner.dart';
 import 'package:next_ble/src/discovered_devices_registry.dart';
-import 'package:next_ble/src/model/ble_status.dart';
-import 'package:next_ble/src/model/characteristic_value.dart';
-import 'package:next_ble/src/model/connection_state_update.dart';
 import 'package:next_ble/src/models.dart';
 import 'package:next_ble/src/reactive_ble_mobile_platform.dart';
-import 'package:next_ble/src/reactive_ble_platform_interface.dart';
 import 'package:next_ble/src/rx_ext/repeater.dart';
 
 /// [NextBle] is the facade of the library. Its interface allows to
@@ -32,14 +28,14 @@ class NextBle {
     required ConnectedDeviceOperation connectedDeviceOperation,
     required Logger debugLogger,
     required Future<void> initialization,
-    required NextBlePlatform NextBlePlatform,
+    required NextBlePlatform nextBlePlatform,
   }) {
     _deviceScanner = deviceScanner;
     _deviceConnector = deviceConnector;
     _connectedDeviceOperator = connectedDeviceOperation;
     _debugLogger = debugLogger;
     _initialization = initialization;
-    _blePlatform = NextBlePlatform;
+    _blePlatform = nextBlePlatform;
     _trackStatus();
   }
 
@@ -110,8 +106,7 @@ class NextBle {
         print,
       );
 
-      NextBlePlatform.instance =
-          const NextBleMobilePlatformFactory().create() as NextBlePlatform;
+      NextBlePlatform.instance = const NextBleMobilePlatformFactory().create();
 
       _blePlatform = NextBlePlatform.instance;
 

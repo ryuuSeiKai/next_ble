@@ -20,7 +20,7 @@ abstract class $ScanResult {
 
   ScanResult copyUsing(void Function(ScanResult$Change change) mutator) {
     final change = ScanResult$Change._(
-      this.result,
+      result,
     );
     mutator(change);
     return ScanResult(
@@ -92,12 +92,12 @@ abstract class $DiscoveredDevice {
   DiscoveredDevice copyUsing(
       void Function(DiscoveredDevice$Change change) mutator) {
     final change = DiscoveredDevice$Change._(
-      this.id,
-      this.name,
-      this.serviceData,
-      this.serviceUuids,
-      this.manufacturerData,
-      this.rssi,
+      id,
+      name,
+      serviceData,
+      serviceUuids,
+      manufacturerData,
+      rssi,
     );
     mutator(change);
     return DiscoveredDevice(

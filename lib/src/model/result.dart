@@ -31,9 +31,9 @@ class Result<Value, Failure> {
     assert(_value == null || _failure == null);
 
     if (_failure != null) {
-      return failure(_failure!);
+      return failure(_failure as Failure);
     } else if (_value != null) {
-      return success(_value!);
+      return success(_value as Value);
     } else {
       throw Exception('Both value and failure cannot be null');
     }

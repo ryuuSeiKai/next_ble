@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:next_ble/next_ble_platform_interface.dart';
+
 import 'converter/args_to_protubuf_converter.dart';
 import 'converter/protobuf_converter.dart';
 import 'models.dart';
@@ -235,7 +236,7 @@ class NextBleMobilePlatformFactory {
   const NextBleMobilePlatformFactory();
 
   NextBleMobilePlatform create() {
-    const _bleMethodChannel = MethodChannel("next_ble_method");
+    const bleMethodChannel = MethodChannel("next_ble_method");
 
     const connectedDeviceChannel = EventChannel("next_ble_connected_device");
     const charEventChannel = EventChannel("next_ble_char_update");
@@ -245,7 +246,7 @@ class NextBleMobilePlatformFactory {
     return NextBleMobilePlatform(
       protobufConverter: const ProtobufConverterImpl(),
       argsToProtobufConverter: const ArgsToProtobufConverterImpl(),
-      bleMethodChannel: _bleMethodChannel,
+      bleMethodChannel: bleMethodChannel,
       connectedDeviceChannel:
           connectedDeviceChannel.receiveBroadcastStream().cast<List<int>>(),
       charUpdateChannel:

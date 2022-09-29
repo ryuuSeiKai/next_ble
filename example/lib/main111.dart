@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
 import 'package:next_ble/next_ble.dart';
 
 void main() {
@@ -16,7 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  final String _platformVersion = 'Unknown';
   final _nextBlePlugin = NextBle();
 
   @override
@@ -27,7 +26,6 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    String platformVersion;
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     // try {
@@ -48,13 +46,13 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  Future<void> bleAdversting() async {
+  Future<void> bleAdvertising() async {
     try {
       await _nextBlePlugin.initialize();
       // final data = await _nextBlePlugin.startAdvertings();
       // print(data);
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 
@@ -72,8 +70,8 @@ class _MyAppState extends State<MyApp> {
             children: [
               Text('Running on: $_platformVersion\n'),
               ElevatedButton(
-                onPressed: bleAdversting,
-                child: Text('Try to adverting bluetooth'),
+                onPressed: bleAdvertising,
+                child: const Text('Try to adverting bluetooth'),
               ),
               // StreamBuilder(
               //   stream: _nextBlePlugin.getSnapshotDiscovered(),
