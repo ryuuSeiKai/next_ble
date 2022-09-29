@@ -1,16 +1,4 @@
-///
-import 'dart:core' as $core;
-import 'dart:core';
-
-import 'package:protobuf/protobuf.dart' as $pb;
-
-class ScanForDevicesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'ScanForDevicesRequest',
-      createEmptyInstance: create)
-    ..pc<Uuid>(
+///uid>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -34,36 +22,39 @@ class ScanForDevicesRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   ScanForDevicesRequest._() : super();
+
   factory ScanForDevicesRequest({
     $core.Iterable<Uuid>? serviceUuids,
     $core.int? scanMode,
     $core.bool? requireLocationServicesEnabled,
   }) {
-    final result = create();
+    final _result = create();
     if (serviceUuids != null) {
-      result.serviceUuids.addAll(serviceUuids);
+      _result.serviceUuids.addAll(serviceUuids);
     }
     if (scanMode != null) {
-      result.scanMode = scanMode;
+      _result.scanMode = scanMode;
     }
     if (requireLocationServicesEnabled != null) {
-      result.requireLocationServicesEnabled = requireLocationServicesEnabled;
+      _result.requireLocationServicesEnabled = requireLocationServicesEnabled;
     }
-    return result;
+    return _result;
   }
+
   factory ScanForDevicesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory ScanForDevicesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   ScanForDevicesRequest clone() =>
       ScanForDevicesRequest()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -71,14 +62,16 @@ class ScanForDevicesRequest extends $pb.GeneratedMessage {
           void Function(ScanForDevicesRequest) updates) =>
       super.copyWith((message) => updates(message as ScanForDevicesRequest))
           as ScanForDevicesRequest; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ScanForDevicesRequest create() => ScanForDevicesRequest._();
-  @override
+
   ScanForDevicesRequest createEmptyInstance() => create();
+
   static $pb.PbList<ScanForDevicesRequest> createRepeated() =>
       $pb.PbList<ScanForDevicesRequest>();
+
   @$core.pragma('dart2js:noInline')
   static ScanForDevicesRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ScanForDevicesRequest>(create);
@@ -89,6 +82,7 @@ class ScanForDevicesRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.int get scanMode => $_getIZ(1);
+
   @$pb.TagNumber(2)
   set scanMode($core.int v) {
     $_setSignedInt32(1, v);
@@ -101,6 +95,7 @@ class ScanForDevicesRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   $core.bool get requireLocationServicesEnabled => $_getBF(2);
+
   @$pb.TagNumber(3)
   set requireLocationServicesEnabled($core.bool v) {
     $_setBool(2, v);
@@ -166,6 +161,7 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   DeviceScanInfo._() : super();
+
   factory DeviceScanInfo({
     $core.String? id,
     $core.String? name,
@@ -175,56 +171,60 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
     $core.List<$core.int>? manufacturerData,
     $core.Iterable<Uuid>? serviceUuids,
   }) {
-    final result = create();
+    final _result = create();
     if (id != null) {
-      result.id = id;
+      _result.id = id;
     }
     if (name != null) {
-      result.name = name;
+      _result.name = name;
     }
     if (failure != null) {
-      result.failure = failure;
+      _result.failure = failure;
     }
     if (serviceData != null) {
-      result.serviceData.addAll(serviceData);
+      _result.serviceData.addAll(serviceData);
     }
     if (rssi != null) {
-      result.rssi = rssi;
+      _result.rssi = rssi;
     }
     if (manufacturerData != null) {
-      result.manufacturerData = manufacturerData;
+      _result.manufacturerData = manufacturerData;
     }
     if (serviceUuids != null) {
-      result.serviceUuids.addAll(serviceUuids);
+      _result.serviceUuids.addAll(serviceUuids);
     }
-    return result;
+    return _result;
   }
+
   factory DeviceScanInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory DeviceScanInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   DeviceScanInfo clone() => DeviceScanInfo()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   DeviceScanInfo copyWith(void Function(DeviceScanInfo) updates) =>
       super.copyWith((message) => updates(message as DeviceScanInfo))
           as DeviceScanInfo; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DeviceScanInfo create() => DeviceScanInfo._();
-  @override
+
   DeviceScanInfo createEmptyInstance() => create();
+
   static $pb.PbList<DeviceScanInfo> createRepeated() =>
       $pb.PbList<DeviceScanInfo>();
+
   @$core.pragma('dart2js:noInline')
   static DeviceScanInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DeviceScanInfo>(create);
@@ -232,6 +232,7 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set id($core.String v) {
     $_setString(0, v);
@@ -244,6 +245,7 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);
+
   @$pb.TagNumber(2)
   set name($core.String v) {
     $_setString(1, v);
@@ -256,6 +258,7 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   GenericFailure get failure => $_getN(2);
+
   @$pb.TagNumber(3)
   set failure(GenericFailure v) {
     setField(3, v);
@@ -273,6 +276,7 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(5)
   $core.int get rssi => $_getIZ(4);
+
   @$pb.TagNumber(5)
   set rssi($core.int v) {
     $_setSignedInt32(4, v);
@@ -285,6 +289,7 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(6)
   $core.List<$core.int> get manufacturerData => $_getN(5);
+
   @$pb.TagNumber(6)
   set manufacturerData($core.List<$core.int> v) {
     $_setBytes(5, v);
@@ -328,37 +333,40 @@ class ConnectToDeviceRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   ConnectToDeviceRequest._() : super();
+
   factory ConnectToDeviceRequest({
     $core.String? deviceId,
     ServicesWithCharacteristics? servicesWithCharacteristicsToDiscover,
     $core.int? timeoutInMs,
   }) {
-    final result = create();
+    final _result = create();
     if (deviceId != null) {
-      result.deviceId = deviceId;
+      _result.deviceId = deviceId;
     }
     if (servicesWithCharacteristicsToDiscover != null) {
-      result.servicesWithCharacteristicsToDiscover =
+      _result.servicesWithCharacteristicsToDiscover =
           servicesWithCharacteristicsToDiscover;
     }
     if (timeoutInMs != null) {
-      result.timeoutInMs = timeoutInMs;
+      _result.timeoutInMs = timeoutInMs;
     }
-    return result;
+    return _result;
   }
+
   factory ConnectToDeviceRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory ConnectToDeviceRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   ConnectToDeviceRequest clone() =>
       ConnectToDeviceRequest()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -366,14 +374,16 @@ class ConnectToDeviceRequest extends $pb.GeneratedMessage {
           void Function(ConnectToDeviceRequest) updates) =>
       super.copyWith((message) => updates(message as ConnectToDeviceRequest))
           as ConnectToDeviceRequest; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ConnectToDeviceRequest create() => ConnectToDeviceRequest._();
-  @override
+
   ConnectToDeviceRequest createEmptyInstance() => create();
+
   static $pb.PbList<ConnectToDeviceRequest> createRepeated() =>
       $pb.PbList<ConnectToDeviceRequest>();
+
   @$core.pragma('dart2js:noInline')
   static ConnectToDeviceRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ConnectToDeviceRequest>(create);
@@ -381,6 +391,7 @@ class ConnectToDeviceRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get deviceId => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set deviceId($core.String v) {
     $_setString(0, v);
@@ -394,6 +405,7 @@ class ConnectToDeviceRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   ServicesWithCharacteristics get servicesWithCharacteristicsToDiscover =>
       $_getN(1);
+
   @$pb.TagNumber(2)
   set servicesWithCharacteristicsToDiscover(ServicesWithCharacteristics v) {
     setField(2, v);
@@ -401,14 +413,17 @@ class ConnectToDeviceRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.bool hasServicesWithCharacteristicsToDiscover() => $_has(1);
+
   @$pb.TagNumber(2)
   void clearServicesWithCharacteristicsToDiscover() => clearField(2);
+
   @$pb.TagNumber(2)
   ServicesWithCharacteristics ensureServicesWithCharacteristicsToDiscover() =>
       $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.int get timeoutInMs => $_getIZ(2);
+
   @$pb.TagNumber(3)
   set timeoutInMs($core.int v) {
     $_setSignedInt32(2, v);
@@ -447,48 +462,53 @@ class DeviceInfo extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   DeviceInfo._() : super();
+
   factory DeviceInfo({
     $core.String? id,
     $core.int? connectionState,
     GenericFailure? failure,
   }) {
-    final result = create();
+    final _result = create();
     if (id != null) {
-      result.id = id;
+      _result.id = id;
     }
     if (connectionState != null) {
-      result.connectionState = connectionState;
+      _result.connectionState = connectionState;
     }
     if (failure != null) {
-      result.failure = failure;
+      _result.failure = failure;
     }
-    return result;
+    return _result;
   }
+
   factory DeviceInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory DeviceInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   DeviceInfo clone() => DeviceInfo()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   DeviceInfo copyWith(void Function(DeviceInfo) updates) =>
       super.copyWith((message) => updates(message as DeviceInfo))
           as DeviceInfo; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DeviceInfo create() => DeviceInfo._();
-  @override
+
   DeviceInfo createEmptyInstance() => create();
+
   static $pb.PbList<DeviceInfo> createRepeated() => $pb.PbList<DeviceInfo>();
+
   @$core.pragma('dart2js:noInline')
   static DeviceInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DeviceInfo>(create);
@@ -496,6 +516,7 @@ class DeviceInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set id($core.String v) {
     $_setString(0, v);
@@ -508,6 +529,7 @@ class DeviceInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.int get connectionState => $_getIZ(1);
+
   @$pb.TagNumber(2)
   set connectionState($core.int v) {
     $_setSignedInt32(1, v);
@@ -520,6 +542,7 @@ class DeviceInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   GenericFailure get failure => $_getN(2);
+
   @$pb.TagNumber(3)
   set failure(GenericFailure v) {
     setField(3, v);
@@ -548,28 +571,31 @@ class DisconnectFromDeviceRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   DisconnectFromDeviceRequest._() : super();
+
   factory DisconnectFromDeviceRequest({
     $core.String? deviceId,
   }) {
-    final result = create();
+    final _result = create();
     if (deviceId != null) {
-      result.deviceId = deviceId;
+      _result.deviceId = deviceId;
     }
-    return result;
+    return _result;
   }
+
   factory DisconnectFromDeviceRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory DisconnectFromDeviceRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   DisconnectFromDeviceRequest clone() =>
       DisconnectFromDeviceRequest()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -578,15 +604,17 @@ class DisconnectFromDeviceRequest extends $pb.GeneratedMessage {
       super.copyWith(
               (message) => updates(message as DisconnectFromDeviceRequest))
           as DisconnectFromDeviceRequest; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DisconnectFromDeviceRequest create() =>
       DisconnectFromDeviceRequest._();
-  @override
+
   DisconnectFromDeviceRequest createEmptyInstance() => create();
+
   static $pb.PbList<DisconnectFromDeviceRequest> createRepeated() =>
       $pb.PbList<DisconnectFromDeviceRequest>();
+
   @$core.pragma('dart2js:noInline')
   static DisconnectFromDeviceRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DisconnectFromDeviceRequest>(create);
@@ -594,6 +622,7 @@ class DisconnectFromDeviceRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get deviceId => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set deviceId($core.String v) {
     $_setString(0, v);
@@ -620,28 +649,31 @@ class ClearGattCacheRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   ClearGattCacheRequest._() : super();
+
   factory ClearGattCacheRequest({
     $core.String? deviceId,
   }) {
-    final result = create();
+    final _result = create();
     if (deviceId != null) {
-      result.deviceId = deviceId;
+      _result.deviceId = deviceId;
     }
-    return result;
+    return _result;
   }
+
   factory ClearGattCacheRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory ClearGattCacheRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   ClearGattCacheRequest clone() =>
       ClearGattCacheRequest()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -649,14 +681,16 @@ class ClearGattCacheRequest extends $pb.GeneratedMessage {
           void Function(ClearGattCacheRequest) updates) =>
       super.copyWith((message) => updates(message as ClearGattCacheRequest))
           as ClearGattCacheRequest; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ClearGattCacheRequest create() => ClearGattCacheRequest._();
-  @override
+
   ClearGattCacheRequest createEmptyInstance() => create();
+
   static $pb.PbList<ClearGattCacheRequest> createRepeated() =>
       $pb.PbList<ClearGattCacheRequest>();
+
   @$core.pragma('dart2js:noInline')
   static ClearGattCacheRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ClearGattCacheRequest>(create);
@@ -664,6 +698,7 @@ class ClearGattCacheRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get deviceId => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set deviceId($core.String v) {
     $_setString(0, v);
@@ -690,41 +725,46 @@ class ClearGattCacheInfo extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   ClearGattCacheInfo._() : super();
+
   factory ClearGattCacheInfo({
     GenericFailure? failure,
   }) {
-    final result = create();
+    final _result = create();
     if (failure != null) {
-      result.failure = failure;
+      _result.failure = failure;
     }
-    return result;
+    return _result;
   }
+
   factory ClearGattCacheInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory ClearGattCacheInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   ClearGattCacheInfo clone() => ClearGattCacheInfo()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   ClearGattCacheInfo copyWith(void Function(ClearGattCacheInfo) updates) =>
       super.copyWith((message) => updates(message as ClearGattCacheInfo))
           as ClearGattCacheInfo; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ClearGattCacheInfo create() => ClearGattCacheInfo._();
-  @override
+
   ClearGattCacheInfo createEmptyInstance() => create();
+
   static $pb.PbList<ClearGattCacheInfo> createRepeated() =>
       $pb.PbList<ClearGattCacheInfo>();
+
   @$core.pragma('dart2js:noInline')
   static ClearGattCacheInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ClearGattCacheInfo>(create);
@@ -732,6 +772,7 @@ class ClearGattCacheInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   GenericFailure get failure => $_getN(0);
+
   @$pb.TagNumber(1)
   set failure(GenericFailure v) {
     setField(1, v);
@@ -760,28 +801,31 @@ class NotifyCharacteristicRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   NotifyCharacteristicRequest._() : super();
+
   factory NotifyCharacteristicRequest({
     CharacteristicAddress? characteristic,
   }) {
-    final result = create();
+    final _result = create();
     if (characteristic != null) {
-      result.characteristic = characteristic;
+      _result.characteristic = characteristic;
     }
-    return result;
+    return _result;
   }
+
   factory NotifyCharacteristicRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory NotifyCharacteristicRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   NotifyCharacteristicRequest clone() =>
       NotifyCharacteristicRequest()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -790,15 +834,17 @@ class NotifyCharacteristicRequest extends $pb.GeneratedMessage {
       super.copyWith(
               (message) => updates(message as NotifyCharacteristicRequest))
           as NotifyCharacteristicRequest; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static NotifyCharacteristicRequest create() =>
       NotifyCharacteristicRequest._();
-  @override
+
   NotifyCharacteristicRequest createEmptyInstance() => create();
+
   static $pb.PbList<NotifyCharacteristicRequest> createRepeated() =>
       $pb.PbList<NotifyCharacteristicRequest>();
+
   @$core.pragma('dart2js:noInline')
   static NotifyCharacteristicRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<NotifyCharacteristicRequest>(create);
@@ -806,6 +852,7 @@ class NotifyCharacteristicRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   CharacteristicAddress get characteristic => $_getN(0);
+
   @$pb.TagNumber(1)
   set characteristic(CharacteristicAddress v) {
     setField(1, v);
@@ -834,28 +881,31 @@ class NotifyNoMoreCharacteristicRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   NotifyNoMoreCharacteristicRequest._() : super();
+
   factory NotifyNoMoreCharacteristicRequest({
     CharacteristicAddress? characteristic,
   }) {
-    final result = create();
+    final _result = create();
     if (characteristic != null) {
-      result.characteristic = characteristic;
+      _result.characteristic = characteristic;
     }
-    return result;
+    return _result;
   }
+
   factory NotifyNoMoreCharacteristicRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory NotifyNoMoreCharacteristicRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   NotifyNoMoreCharacteristicRequest clone() =>
       NotifyNoMoreCharacteristicRequest()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -864,15 +914,17 @@ class NotifyNoMoreCharacteristicRequest extends $pb.GeneratedMessage {
       super.copyWith((message) =>
               updates(message as NotifyNoMoreCharacteristicRequest))
           as NotifyNoMoreCharacteristicRequest; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static NotifyNoMoreCharacteristicRequest create() =>
       NotifyNoMoreCharacteristicRequest._();
-  @override
+
   NotifyNoMoreCharacteristicRequest createEmptyInstance() => create();
+
   static $pb.PbList<NotifyNoMoreCharacteristicRequest> createRepeated() =>
       $pb.PbList<NotifyNoMoreCharacteristicRequest>();
+
   @$core.pragma('dart2js:noInline')
   static NotifyNoMoreCharacteristicRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<NotifyNoMoreCharacteristicRequest>(
@@ -881,6 +933,7 @@ class NotifyNoMoreCharacteristicRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   CharacteristicAddress get characteristic => $_getN(0);
+
   @$pb.TagNumber(1)
   set characteristic(CharacteristicAddress v) {
     setField(1, v);
@@ -909,28 +962,31 @@ class ReadCharacteristicRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   ReadCharacteristicRequest._() : super();
+
   factory ReadCharacteristicRequest({
     CharacteristicAddress? characteristic,
   }) {
-    final result = create();
+    final _result = create();
     if (characteristic != null) {
-      result.characteristic = characteristic;
+      _result.characteristic = characteristic;
     }
-    return result;
+    return _result;
   }
+
   factory ReadCharacteristicRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory ReadCharacteristicRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   ReadCharacteristicRequest clone() =>
       ReadCharacteristicRequest()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -938,14 +994,16 @@ class ReadCharacteristicRequest extends $pb.GeneratedMessage {
           void Function(ReadCharacteristicRequest) updates) =>
       super.copyWith((message) => updates(message as ReadCharacteristicRequest))
           as ReadCharacteristicRequest; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ReadCharacteristicRequest create() => ReadCharacteristicRequest._();
-  @override
+
   ReadCharacteristicRequest createEmptyInstance() => create();
+
   static $pb.PbList<ReadCharacteristicRequest> createRepeated() =>
       $pb.PbList<ReadCharacteristicRequest>();
+
   @$core.pragma('dart2js:noInline')
   static ReadCharacteristicRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ReadCharacteristicRequest>(create);
@@ -953,6 +1011,7 @@ class ReadCharacteristicRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   CharacteristicAddress get characteristic => $_getN(0);
+
   @$pb.TagNumber(1)
   set characteristic(CharacteristicAddress v) {
     setField(1, v);
@@ -993,36 +1052,39 @@ class CharacteristicValueInfo extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   CharacteristicValueInfo._() : super();
+
   factory CharacteristicValueInfo({
     CharacteristicAddress? characteristic,
     $core.List<$core.int>? value,
     GenericFailure? failure,
   }) {
-    final result = create();
+    final _result = create();
     if (characteristic != null) {
-      result.characteristic = characteristic;
+      _result.characteristic = characteristic;
     }
     if (value != null) {
-      result.value = value;
+      _result.value = value;
     }
     if (failure != null) {
-      result.failure = failure;
+      _result.failure = failure;
     }
-    return result;
+    return _result;
   }
+
   factory CharacteristicValueInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory CharacteristicValueInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   CharacteristicValueInfo clone() =>
       CharacteristicValueInfo()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -1030,14 +1092,16 @@ class CharacteristicValueInfo extends $pb.GeneratedMessage {
           void Function(CharacteristicValueInfo) updates) =>
       super.copyWith((message) => updates(message as CharacteristicValueInfo))
           as CharacteristicValueInfo; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CharacteristicValueInfo create() => CharacteristicValueInfo._();
-  @override
+
   CharacteristicValueInfo createEmptyInstance() => create();
+
   static $pb.PbList<CharacteristicValueInfo> createRepeated() =>
       $pb.PbList<CharacteristicValueInfo>();
+
   @$core.pragma('dart2js:noInline')
   static CharacteristicValueInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CharacteristicValueInfo>(create);
@@ -1045,6 +1109,7 @@ class CharacteristicValueInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   CharacteristicAddress get characteristic => $_getN(0);
+
   @$pb.TagNumber(1)
   set characteristic(CharacteristicAddress v) {
     setField(1, v);
@@ -1059,6 +1124,7 @@ class CharacteristicValueInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.List<$core.int> get value => $_getN(1);
+
   @$pb.TagNumber(2)
   set value($core.List<$core.int> v) {
     $_setBytes(1, v);
@@ -1071,6 +1137,7 @@ class CharacteristicValueInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   GenericFailure get failure => $_getN(2);
+
   @$pb.TagNumber(3)
   set failure(GenericFailure v) {
     setField(3, v);
@@ -1105,32 +1172,35 @@ class WriteCharacteristicRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   WriteCharacteristicRequest._() : super();
+
   factory WriteCharacteristicRequest({
     CharacteristicAddress? characteristic,
     $core.List<$core.int>? value,
   }) {
-    final result = create();
+    final _result = create();
     if (characteristic != null) {
-      result.characteristic = characteristic;
+      _result.characteristic = characteristic;
     }
     if (value != null) {
-      result.value = value;
+      _result.value = value;
     }
-    return result;
+    return _result;
   }
+
   factory WriteCharacteristicRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory WriteCharacteristicRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   WriteCharacteristicRequest clone() =>
       WriteCharacteristicRequest()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -1139,14 +1209,16 @@ class WriteCharacteristicRequest extends $pb.GeneratedMessage {
       super.copyWith(
               (message) => updates(message as WriteCharacteristicRequest))
           as WriteCharacteristicRequest; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static WriteCharacteristicRequest create() => WriteCharacteristicRequest._();
-  @override
+
   WriteCharacteristicRequest createEmptyInstance() => create();
+
   static $pb.PbList<WriteCharacteristicRequest> createRepeated() =>
       $pb.PbList<WriteCharacteristicRequest>();
+
   @$core.pragma('dart2js:noInline')
   static WriteCharacteristicRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WriteCharacteristicRequest>(create);
@@ -1154,6 +1226,7 @@ class WriteCharacteristicRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   CharacteristicAddress get characteristic => $_getN(0);
+
   @$pb.TagNumber(1)
   set characteristic(CharacteristicAddress v) {
     setField(1, v);
@@ -1168,6 +1241,7 @@ class WriteCharacteristicRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.List<$core.int> get value => $_getN(1);
+
   @$pb.TagNumber(2)
   set value($core.List<$core.int> v) {
     $_setBytes(1, v);
@@ -1200,32 +1274,35 @@ class WriteCharacteristicInfo extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   WriteCharacteristicInfo._() : super();
+
   factory WriteCharacteristicInfo({
     CharacteristicAddress? characteristic,
     GenericFailure? failure,
   }) {
-    final result = create();
+    final _result = create();
     if (characteristic != null) {
-      result.characteristic = characteristic;
+      _result.characteristic = characteristic;
     }
     if (failure != null) {
-      result.failure = failure;
+      _result.failure = failure;
     }
-    return result;
+    return _result;
   }
+
   factory WriteCharacteristicInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory WriteCharacteristicInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   WriteCharacteristicInfo clone() =>
       WriteCharacteristicInfo()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -1233,14 +1310,16 @@ class WriteCharacteristicInfo extends $pb.GeneratedMessage {
           void Function(WriteCharacteristicInfo) updates) =>
       super.copyWith((message) => updates(message as WriteCharacteristicInfo))
           as WriteCharacteristicInfo; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static WriteCharacteristicInfo create() => WriteCharacteristicInfo._();
-  @override
+
   WriteCharacteristicInfo createEmptyInstance() => create();
+
   static $pb.PbList<WriteCharacteristicInfo> createRepeated() =>
       $pb.PbList<WriteCharacteristicInfo>();
+
   @$core.pragma('dart2js:noInline')
   static WriteCharacteristicInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WriteCharacteristicInfo>(create);
@@ -1248,6 +1327,7 @@ class WriteCharacteristicInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   CharacteristicAddress get characteristic => $_getN(0);
+
   @$pb.TagNumber(1)
   set characteristic(CharacteristicAddress v) {
     setField(1, v);
@@ -1262,6 +1342,7 @@ class WriteCharacteristicInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   GenericFailure get failure => $_getN(1);
+
   @$pb.TagNumber(3)
   set failure(GenericFailure v) {
     setField(3, v);
@@ -1297,45 +1378,50 @@ class NegotiateMtuRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   NegotiateMtuRequest._() : super();
+
   factory NegotiateMtuRequest({
     $core.String? deviceId,
     $core.int? mtuSize,
   }) {
-    final result = create();
+    final _result = create();
     if (deviceId != null) {
-      result.deviceId = deviceId;
+      _result.deviceId = deviceId;
     }
     if (mtuSize != null) {
-      result.mtuSize = mtuSize;
+      _result.mtuSize = mtuSize;
     }
-    return result;
+    return _result;
   }
+
   factory NegotiateMtuRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory NegotiateMtuRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   NegotiateMtuRequest clone() => NegotiateMtuRequest()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   NegotiateMtuRequest copyWith(void Function(NegotiateMtuRequest) updates) =>
       super.copyWith((message) => updates(message as NegotiateMtuRequest))
           as NegotiateMtuRequest; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static NegotiateMtuRequest create() => NegotiateMtuRequest._();
-  @override
+
   NegotiateMtuRequest createEmptyInstance() => create();
+
   static $pb.PbList<NegotiateMtuRequest> createRepeated() =>
       $pb.PbList<NegotiateMtuRequest>();
+
   @$core.pragma('dart2js:noInline')
   static NegotiateMtuRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<NegotiateMtuRequest>(create);
@@ -1343,6 +1429,7 @@ class NegotiateMtuRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get deviceId => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set deviceId($core.String v) {
     $_setString(0, v);
@@ -1355,6 +1442,7 @@ class NegotiateMtuRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.int get mtuSize => $_getIZ(1);
+
   @$pb.TagNumber(2)
   set mtuSize($core.int v) {
     $_setSignedInt32(1, v);
@@ -1394,49 +1482,54 @@ class NegotiateMtuInfo extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   NegotiateMtuInfo._() : super();
+
   factory NegotiateMtuInfo({
     $core.String? deviceId,
     $core.int? mtuSize,
     GenericFailure? failure,
   }) {
-    final result = create();
+    final _result = create();
     if (deviceId != null) {
-      result.deviceId = deviceId;
+      _result.deviceId = deviceId;
     }
     if (mtuSize != null) {
-      result.mtuSize = mtuSize;
+      _result.mtuSize = mtuSize;
     }
     if (failure != null) {
-      result.failure = failure;
+      _result.failure = failure;
     }
-    return result;
+    return _result;
   }
+
   factory NegotiateMtuInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory NegotiateMtuInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   NegotiateMtuInfo clone() => NegotiateMtuInfo()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   NegotiateMtuInfo copyWith(void Function(NegotiateMtuInfo) updates) =>
       super.copyWith((message) => updates(message as NegotiateMtuInfo))
           as NegotiateMtuInfo; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static NegotiateMtuInfo create() => NegotiateMtuInfo._();
-  @override
+
   NegotiateMtuInfo createEmptyInstance() => create();
+
   static $pb.PbList<NegotiateMtuInfo> createRepeated() =>
       $pb.PbList<NegotiateMtuInfo>();
+
   @$core.pragma('dart2js:noInline')
   static NegotiateMtuInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<NegotiateMtuInfo>(create);
@@ -1444,6 +1537,7 @@ class NegotiateMtuInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get deviceId => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set deviceId($core.String v) {
     $_setString(0, v);
@@ -1456,6 +1550,7 @@ class NegotiateMtuInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.int get mtuSize => $_getIZ(1);
+
   @$pb.TagNumber(2)
   set mtuSize($core.int v) {
     $_setSignedInt32(1, v);
@@ -1468,6 +1563,7 @@ class NegotiateMtuInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   GenericFailure get failure => $_getN(2);
+
   @$pb.TagNumber(3)
   set failure(GenericFailure v) {
     setField(3, v);
@@ -1496,41 +1592,46 @@ class BleStatusInfo extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   BleStatusInfo._() : super();
+
   factory BleStatusInfo({
     $core.int? status,
   }) {
-    final result = create();
+    final _result = create();
     if (status != null) {
-      result.status = status;
+      _result.status = status;
     }
-    return result;
+    return _result;
   }
+
   factory BleStatusInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory BleStatusInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   BleStatusInfo clone() => BleStatusInfo()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   BleStatusInfo copyWith(void Function(BleStatusInfo) updates) =>
       super.copyWith((message) => updates(message as BleStatusInfo))
           as BleStatusInfo; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static BleStatusInfo create() => BleStatusInfo._();
-  @override
+
   BleStatusInfo createEmptyInstance() => create();
+
   static $pb.PbList<BleStatusInfo> createRepeated() =>
       $pb.PbList<BleStatusInfo>();
+
   @$core.pragma('dart2js:noInline')
   static BleStatusInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<BleStatusInfo>(create);
@@ -1538,6 +1639,7 @@ class BleStatusInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.int get status => $_getIZ(0);
+
   @$pb.TagNumber(1)
   set status($core.int v) {
     $_setSignedInt32(0, v);
@@ -1570,32 +1672,35 @@ class ChangeConnectionPriorityRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   ChangeConnectionPriorityRequest._() : super();
+
   factory ChangeConnectionPriorityRequest({
     $core.String? deviceId,
     $core.int? priority,
   }) {
-    final result = create();
+    final _result = create();
     if (deviceId != null) {
-      result.deviceId = deviceId;
+      _result.deviceId = deviceId;
     }
     if (priority != null) {
-      result.priority = priority;
+      _result.priority = priority;
     }
-    return result;
+    return _result;
   }
+
   factory ChangeConnectionPriorityRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory ChangeConnectionPriorityRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   ChangeConnectionPriorityRequest clone() =>
       ChangeConnectionPriorityRequest()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -1604,15 +1709,17 @@ class ChangeConnectionPriorityRequest extends $pb.GeneratedMessage {
       super.copyWith(
               (message) => updates(message as ChangeConnectionPriorityRequest))
           as ChangeConnectionPriorityRequest; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ChangeConnectionPriorityRequest create() =>
       ChangeConnectionPriorityRequest._();
-  @override
+
   ChangeConnectionPriorityRequest createEmptyInstance() => create();
+
   static $pb.PbList<ChangeConnectionPriorityRequest> createRepeated() =>
       $pb.PbList<ChangeConnectionPriorityRequest>();
+
   @$core.pragma('dart2js:noInline')
   static ChangeConnectionPriorityRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ChangeConnectionPriorityRequest>(
@@ -1621,6 +1728,7 @@ class ChangeConnectionPriorityRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get deviceId => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set deviceId($core.String v) {
     $_setString(0, v);
@@ -1633,6 +1741,7 @@ class ChangeConnectionPriorityRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.int get priority => $_getIZ(1);
+
   @$pb.TagNumber(2)
   set priority($core.int v) {
     $_setSignedInt32(1, v);
@@ -1665,32 +1774,35 @@ class ChangeConnectionPriorityInfo extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   ChangeConnectionPriorityInfo._() : super();
+
   factory ChangeConnectionPriorityInfo({
     $core.String? deviceId,
     GenericFailure? failure,
   }) {
-    final result = create();
+    final _result = create();
     if (deviceId != null) {
-      result.deviceId = deviceId;
+      _result.deviceId = deviceId;
     }
     if (failure != null) {
-      result.failure = failure;
+      _result.failure = failure;
     }
-    return result;
+    return _result;
   }
+
   factory ChangeConnectionPriorityInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory ChangeConnectionPriorityInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   ChangeConnectionPriorityInfo clone() =>
       ChangeConnectionPriorityInfo()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -1699,15 +1811,17 @@ class ChangeConnectionPriorityInfo extends $pb.GeneratedMessage {
       super.copyWith(
               (message) => updates(message as ChangeConnectionPriorityInfo))
           as ChangeConnectionPriorityInfo; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ChangeConnectionPriorityInfo create() =>
       ChangeConnectionPriorityInfo._();
-  @override
+
   ChangeConnectionPriorityInfo createEmptyInstance() => create();
+
   static $pb.PbList<ChangeConnectionPriorityInfo> createRepeated() =>
       $pb.PbList<ChangeConnectionPriorityInfo>();
+
   @$core.pragma('dart2js:noInline')
   static ChangeConnectionPriorityInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ChangeConnectionPriorityInfo>(create);
@@ -1715,6 +1829,7 @@ class ChangeConnectionPriorityInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get deviceId => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set deviceId($core.String v) {
     $_setString(0, v);
@@ -1727,6 +1842,7 @@ class ChangeConnectionPriorityInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   GenericFailure get failure => $_getN(1);
+
   @$pb.TagNumber(2)
   set failure(GenericFailure v) {
     setField(2, v);
@@ -1769,36 +1885,39 @@ class CharacteristicAddress extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   CharacteristicAddress._() : super();
+
   factory CharacteristicAddress({
     $core.String? deviceId,
     Uuid? serviceUuid,
     Uuid? characteristicUuid,
   }) {
-    final result = create();
+    final _result = create();
     if (deviceId != null) {
-      result.deviceId = deviceId;
+      _result.deviceId = deviceId;
     }
     if (serviceUuid != null) {
-      result.serviceUuid = serviceUuid;
+      _result.serviceUuid = serviceUuid;
     }
     if (characteristicUuid != null) {
-      result.characteristicUuid = characteristicUuid;
+      _result.characteristicUuid = characteristicUuid;
     }
-    return result;
+    return _result;
   }
+
   factory CharacteristicAddress.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory CharacteristicAddress.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   CharacteristicAddress clone() =>
       CharacteristicAddress()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -1806,14 +1925,16 @@ class CharacteristicAddress extends $pb.GeneratedMessage {
           void Function(CharacteristicAddress) updates) =>
       super.copyWith((message) => updates(message as CharacteristicAddress))
           as CharacteristicAddress; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CharacteristicAddress create() => CharacteristicAddress._();
-  @override
+
   CharacteristicAddress createEmptyInstance() => create();
+
   static $pb.PbList<CharacteristicAddress> createRepeated() =>
       $pb.PbList<CharacteristicAddress>();
+
   @$core.pragma('dart2js:noInline')
   static CharacteristicAddress getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CharacteristicAddress>(create);
@@ -1821,6 +1942,7 @@ class CharacteristicAddress extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get deviceId => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set deviceId($core.String v) {
     $_setString(0, v);
@@ -1833,6 +1955,7 @@ class CharacteristicAddress extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   Uuid get serviceUuid => $_getN(1);
+
   @$pb.TagNumber(2)
   set serviceUuid(Uuid v) {
     setField(2, v);
@@ -1847,6 +1970,7 @@ class CharacteristicAddress extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   Uuid get characteristicUuid => $_getN(2);
+
   @$pb.TagNumber(3)
   set characteristicUuid(Uuid v) {
     setField(3, v);
@@ -1882,45 +2006,50 @@ class ServiceDataEntry extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   ServiceDataEntry._() : super();
+
   factory ServiceDataEntry({
     Uuid? serviceUuid,
     $core.List<$core.int>? data,
   }) {
-    final result = create();
+    final _result = create();
     if (serviceUuid != null) {
-      result.serviceUuid = serviceUuid;
+      _result.serviceUuid = serviceUuid;
     }
     if (data != null) {
-      result.data = data;
+      _result.data = data;
     }
-    return result;
+    return _result;
   }
+
   factory ServiceDataEntry.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory ServiceDataEntry.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   ServiceDataEntry clone() => ServiceDataEntry()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   ServiceDataEntry copyWith(void Function(ServiceDataEntry) updates) =>
       super.copyWith((message) => updates(message as ServiceDataEntry))
           as ServiceDataEntry; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ServiceDataEntry create() => ServiceDataEntry._();
-  @override
+
   ServiceDataEntry createEmptyInstance() => create();
+
   static $pb.PbList<ServiceDataEntry> createRepeated() =>
       $pb.PbList<ServiceDataEntry>();
+
   @$core.pragma('dart2js:noInline')
   static ServiceDataEntry getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ServiceDataEntry>(create);
@@ -1928,6 +2057,7 @@ class ServiceDataEntry extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   Uuid get serviceUuid => $_getN(0);
+
   @$pb.TagNumber(1)
   set serviceUuid(Uuid v) {
     setField(1, v);
@@ -1942,6 +2072,7 @@ class ServiceDataEntry extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.List<$core.int> get data => $_getN(1);
+
   @$pb.TagNumber(2)
   set data($core.List<$core.int> v) {
     $_setBytes(1, v);
@@ -1969,28 +2100,31 @@ class ServicesWithCharacteristics extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   ServicesWithCharacteristics._() : super();
+
   factory ServicesWithCharacteristics({
     $core.Iterable<ServiceWithCharacteristics>? items,
   }) {
-    final result = create();
+    final _result = create();
     if (items != null) {
-      result.items.addAll(items);
+      _result.items.addAll(items);
     }
-    return result;
+    return _result;
   }
+
   factory ServicesWithCharacteristics.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory ServicesWithCharacteristics.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   ServicesWithCharacteristics clone() =>
       ServicesWithCharacteristics()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -1999,15 +2133,17 @@ class ServicesWithCharacteristics extends $pb.GeneratedMessage {
       super.copyWith(
               (message) => updates(message as ServicesWithCharacteristics))
           as ServicesWithCharacteristics; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ServicesWithCharacteristics create() =>
       ServicesWithCharacteristics._();
-  @override
+
   ServicesWithCharacteristics createEmptyInstance() => create();
+
   static $pb.PbList<ServicesWithCharacteristics> createRepeated() =>
       $pb.PbList<ServicesWithCharacteristics>();
+
   @$core.pragma('dart2js:noInline')
   static ServicesWithCharacteristics getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ServicesWithCharacteristics>(create);
@@ -2040,32 +2176,35 @@ class ServiceWithCharacteristics extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   ServiceWithCharacteristics._() : super();
+
   factory ServiceWithCharacteristics({
     Uuid? serviceId,
     $core.Iterable<Uuid>? characteristics,
   }) {
-    final result = create();
+    final _result = create();
     if (serviceId != null) {
-      result.serviceId = serviceId;
+      _result.serviceId = serviceId;
     }
     if (characteristics != null) {
-      result.characteristics.addAll(characteristics);
+      _result.characteristics.addAll(characteristics);
     }
-    return result;
+    return _result;
   }
+
   factory ServiceWithCharacteristics.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory ServiceWithCharacteristics.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   ServiceWithCharacteristics clone() =>
       ServiceWithCharacteristics()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -2074,14 +2213,16 @@ class ServiceWithCharacteristics extends $pb.GeneratedMessage {
       super.copyWith(
               (message) => updates(message as ServiceWithCharacteristics))
           as ServiceWithCharacteristics; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ServiceWithCharacteristics create() => ServiceWithCharacteristics._();
-  @override
+
   ServiceWithCharacteristics createEmptyInstance() => create();
+
   static $pb.PbList<ServiceWithCharacteristics> createRepeated() =>
       $pb.PbList<ServiceWithCharacteristics>();
+
   @$core.pragma('dart2js:noInline')
   static ServiceWithCharacteristics getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ServiceWithCharacteristics>(create);
@@ -2089,6 +2230,7 @@ class ServiceWithCharacteristics extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   Uuid get serviceId => $_getN(0);
+
   @$pb.TagNumber(1)
   set serviceId(Uuid v) {
     setField(1, v);
@@ -2120,28 +2262,31 @@ class DiscoverServicesRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   DiscoverServicesRequest._() : super();
+
   factory DiscoverServicesRequest({
     $core.String? deviceId,
   }) {
-    final result = create();
+    final _result = create();
     if (deviceId != null) {
-      result.deviceId = deviceId;
+      _result.deviceId = deviceId;
     }
-    return result;
+    return _result;
   }
+
   factory DiscoverServicesRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory DiscoverServicesRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   DiscoverServicesRequest clone() =>
       DiscoverServicesRequest()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -2149,14 +2294,16 @@ class DiscoverServicesRequest extends $pb.GeneratedMessage {
           void Function(DiscoverServicesRequest) updates) =>
       super.copyWith((message) => updates(message as DiscoverServicesRequest))
           as DiscoverServicesRequest; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DiscoverServicesRequest create() => DiscoverServicesRequest._();
-  @override
+
   DiscoverServicesRequest createEmptyInstance() => create();
+
   static $pb.PbList<DiscoverServicesRequest> createRepeated() =>
       $pb.PbList<DiscoverServicesRequest>();
+
   @$core.pragma('dart2js:noInline')
   static DiscoverServicesRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DiscoverServicesRequest>(create);
@@ -2164,6 +2311,7 @@ class DiscoverServicesRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get deviceId => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set deviceId($core.String v) {
     $_setString(0, v);
@@ -2197,46 +2345,51 @@ class DiscoverServicesInfo extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   DiscoverServicesInfo._() : super();
+
   factory DiscoverServicesInfo({
     $core.String? deviceId,
     $core.Iterable<DiscoveredService>? services,
   }) {
-    final result = create();
+    final _result = create();
     if (deviceId != null) {
-      result.deviceId = deviceId;
+      _result.deviceId = deviceId;
     }
     if (services != null) {
-      result.services.addAll(services);
+      _result.services.addAll(services);
     }
-    return result;
+    return _result;
   }
+
   factory DiscoverServicesInfo.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory DiscoverServicesInfo.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   DiscoverServicesInfo clone() =>
       DiscoverServicesInfo()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   DiscoverServicesInfo copyWith(void Function(DiscoverServicesInfo) updates) =>
       super.copyWith((message) => updates(message as DiscoverServicesInfo))
           as DiscoverServicesInfo; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DiscoverServicesInfo create() => DiscoverServicesInfo._();
-  @override
+
   DiscoverServicesInfo createEmptyInstance() => create();
+
   static $pb.PbList<DiscoverServicesInfo> createRepeated() =>
       $pb.PbList<DiscoverServicesInfo>();
+
   @$core.pragma('dart2js:noInline')
   static DiscoverServicesInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DiscoverServicesInfo>(create);
@@ -2244,6 +2397,7 @@ class DiscoverServicesInfo extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.String get deviceId => $_getSZ(0);
+
   @$pb.TagNumber(1)
   set deviceId($core.String v) {
     $_setString(0, v);
@@ -2297,53 +2451,58 @@ class DiscoveredService extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   DiscoveredService._() : super();
+
   factory DiscoveredService({
     Uuid? serviceUuid,
     $core.Iterable<Uuid>? characteristicUuids,
     $core.Iterable<DiscoveredService>? includedServices,
     $core.Iterable<DiscoveredCharacteristic>? characteristics,
   }) {
-    final result = create();
+    final _result = create();
     if (serviceUuid != null) {
-      result.serviceUuid = serviceUuid;
+      _result.serviceUuid = serviceUuid;
     }
     if (characteristicUuids != null) {
-      result.characteristicUuids.addAll(characteristicUuids);
+      _result.characteristicUuids.addAll(characteristicUuids);
     }
     if (includedServices != null) {
-      result.includedServices.addAll(includedServices);
+      _result.includedServices.addAll(includedServices);
     }
     if (characteristics != null) {
-      result.characteristics.addAll(characteristics);
+      _result.characteristics.addAll(characteristics);
     }
-    return result;
+    return _result;
   }
+
   factory DiscoveredService.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory DiscoveredService.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   DiscoveredService clone() => DiscoveredService()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   DiscoveredService copyWith(void Function(DiscoveredService) updates) =>
       super.copyWith((message) => updates(message as DiscoveredService))
           as DiscoveredService; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DiscoveredService create() => DiscoveredService._();
-  @override
+
   DiscoveredService createEmptyInstance() => create();
+
   static $pb.PbList<DiscoveredService> createRepeated() =>
       $pb.PbList<DiscoveredService>();
+
   @$core.pragma('dart2js:noInline')
   static DiscoveredService getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DiscoveredService>(create);
@@ -2351,6 +2510,7 @@ class DiscoveredService extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   Uuid get serviceUuid => $_getN(0);
+
   @$pb.TagNumber(1)
   set serviceUuid(Uuid v) {
     setField(1, v);
@@ -2426,6 +2586,7 @@ class DiscoveredCharacteristic extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   DiscoveredCharacteristic._() : super();
+
   factory DiscoveredCharacteristic({
     Uuid? characteristicId,
     Uuid? serviceId,
@@ -2435,43 +2596,45 @@ class DiscoveredCharacteristic extends $pb.GeneratedMessage {
     $core.bool? isNotifiable,
     $core.bool? isIndicatable,
   }) {
-    final result = create();
+    final _result = create();
     if (characteristicId != null) {
-      result.characteristicId = characteristicId;
+      _result.characteristicId = characteristicId;
     }
     if (serviceId != null) {
-      result.serviceId = serviceId;
+      _result.serviceId = serviceId;
     }
     if (isReadable != null) {
-      result.isReadable = isReadable;
+      _result.isReadable = isReadable;
     }
     if (isWritableWithResponse != null) {
-      result.isWritableWithResponse = isWritableWithResponse;
+      _result.isWritableWithResponse = isWritableWithResponse;
     }
     if (isWritableWithoutResponse != null) {
-      result.isWritableWithoutResponse = isWritableWithoutResponse;
+      _result.isWritableWithoutResponse = isWritableWithoutResponse;
     }
     if (isNotifiable != null) {
-      result.isNotifiable = isNotifiable;
+      _result.isNotifiable = isNotifiable;
     }
     if (isIndicatable != null) {
-      result.isIndicatable = isIndicatable;
+      _result.isIndicatable = isIndicatable;
     }
-    return result;
+    return _result;
   }
+
   factory DiscoveredCharacteristic.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory DiscoveredCharacteristic.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   DiscoveredCharacteristic clone() =>
       DiscoveredCharacteristic()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
@@ -2479,14 +2642,16 @@ class DiscoveredCharacteristic extends $pb.GeneratedMessage {
           void Function(DiscoveredCharacteristic) updates) =>
       super.copyWith((message) => updates(message as DiscoveredCharacteristic))
           as DiscoveredCharacteristic; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DiscoveredCharacteristic create() => DiscoveredCharacteristic._();
-  @override
+
   DiscoveredCharacteristic createEmptyInstance() => create();
+
   static $pb.PbList<DiscoveredCharacteristic> createRepeated() =>
       $pb.PbList<DiscoveredCharacteristic>();
+
   @$core.pragma('dart2js:noInline')
   static DiscoveredCharacteristic getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DiscoveredCharacteristic>(create);
@@ -2494,6 +2659,7 @@ class DiscoveredCharacteristic extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   Uuid get characteristicId => $_getN(0);
+
   @$pb.TagNumber(1)
   set characteristicId(Uuid v) {
     setField(1, v);
@@ -2508,6 +2674,7 @@ class DiscoveredCharacteristic extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   Uuid get serviceId => $_getN(1);
+
   @$pb.TagNumber(2)
   set serviceId(Uuid v) {
     setField(2, v);
@@ -2522,6 +2689,7 @@ class DiscoveredCharacteristic extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   $core.bool get isReadable => $_getBF(2);
+
   @$pb.TagNumber(3)
   set isReadable($core.bool v) {
     $_setBool(2, v);
@@ -2534,6 +2702,7 @@ class DiscoveredCharacteristic extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(4)
   $core.bool get isWritableWithResponse => $_getBF(3);
+
   @$pb.TagNumber(4)
   set isWritableWithResponse($core.bool v) {
     $_setBool(3, v);
@@ -2546,6 +2715,7 @@ class DiscoveredCharacteristic extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(5)
   $core.bool get isWritableWithoutResponse => $_getBF(4);
+
   @$pb.TagNumber(5)
   set isWritableWithoutResponse($core.bool v) {
     $_setBool(4, v);
@@ -2558,6 +2728,7 @@ class DiscoveredCharacteristic extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(6)
   $core.bool get isNotifiable => $_getBF(5);
+
   @$pb.TagNumber(6)
   set isNotifiable($core.bool v) {
     $_setBool(5, v);
@@ -2570,6 +2741,7 @@ class DiscoveredCharacteristic extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(7)
   $core.bool get isIndicatable => $_getBF(6);
+
   @$pb.TagNumber(7)
   set isIndicatable($core.bool v) {
     $_setBool(6, v);
@@ -2596,40 +2768,45 @@ class Uuid extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   Uuid._() : super();
+
   factory Uuid({
     $core.List<$core.int>? data,
   }) {
-    final result = create();
+    final _result = create();
     if (data != null) {
-      result.data = data;
+      _result.data = data;
     }
-    return result;
+    return _result;
   }
+
   factory Uuid.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory Uuid.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   Uuid clone() => Uuid()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   Uuid copyWith(void Function(Uuid) updates) =>
       super.copyWith((message) => updates(message as Uuid))
           as Uuid; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static Uuid create() => Uuid._();
-  @override
+
   Uuid createEmptyInstance() => create();
+
   static $pb.PbList<Uuid> createRepeated() => $pb.PbList<Uuid>();
+
   @$core.pragma('dart2js:noInline')
   static Uuid getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Uuid>(create);
@@ -2637,6 +2814,7 @@ class Uuid extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.List<$core.int> get data => $_getN(0);
+
   @$pb.TagNumber(1)
   set data($core.List<$core.int> v) {
     $_setBytes(0, v);
@@ -2668,45 +2846,50 @@ class GenericFailure extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   GenericFailure._() : super();
+
   factory GenericFailure({
     $core.int? code,
     $core.String? message,
   }) {
-    final result = create();
+    final _result = create();
     if (code != null) {
-      result.code = code;
+      _result.code = code;
     }
     if (message != null) {
-      result.message = message;
+      _result.message = message;
     }
-    return result;
+    return _result;
   }
+
   factory GenericFailure.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
+
   factory GenericFailure.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
   GenericFailure clone() => GenericFailure()..mergeFromMessage(this);
-  @override
+
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
   GenericFailure copyWith(void Function(GenericFailure) updates) =>
       super.copyWith((message) => updates(message as GenericFailure))
           as GenericFailure; // ignore: deprecated_member_use
-  @override
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GenericFailure create() => GenericFailure._();
-  @override
+
   GenericFailure createEmptyInstance() => create();
+
   static $pb.PbList<GenericFailure> createRepeated() =>
       $pb.PbList<GenericFailure>();
+
   @$core.pragma('dart2js:noInline')
   static GenericFailure getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GenericFailure>(create);
@@ -2714,6 +2897,7 @@ class GenericFailure extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.int get code => $_getIZ(0);
+
   @$pb.TagNumber(1)
   set code($core.int v) {
     $_setSignedInt32(0, v);
@@ -2726,6 +2910,7 @@ class GenericFailure extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.String get message => $_getSZ(1);
+
   @$pb.TagNumber(2)
   set message($core.String v) {
     $_setString(1, v);
@@ -2736,3 +2921,4 @@ class GenericFailure extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearMessage() => clearField(2);
 }
+
