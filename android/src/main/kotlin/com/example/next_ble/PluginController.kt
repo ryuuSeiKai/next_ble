@@ -55,10 +55,10 @@ class PluginController {
     internal fun initialize(messenger: BinaryMessenger, context: Context) {
         bleClient = com.example.next_ble.ble.ReactiveBleClient(context)
 
-        scanchannel = EventChannel(messenger, "flutter_reactive_ble_scan")
-        deviceConnectionChannel = EventChannel(messenger, "flutter_reactive_ble_connected_device")
-        charNotificationChannel = EventChannel(messenger, "flutter_reactive_ble_char_update")
-        val bleStatusChannel = EventChannel(messenger, "flutter_reactive_ble_status")
+        scanchannel = EventChannel(messenger, "next_ble_scan")
+        deviceConnectionChannel = EventChannel(messenger, "next_ble_connected_device")
+        charNotificationChannel = EventChannel(messenger, "next_ble_char_update")
+        val bleStatusChannel = EventChannel(messenger, "next_ble_status")
 
         scandevicesHandler = ScanDevicesHandler(bleClient)
         deviceConnectionHandler = DeviceConnectionHandler(bleClient)

@@ -20,7 +20,7 @@ class NextBlePlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
 
         @JvmStatic
         private fun initalizePlugin(messenger: BinaryMessenger, context: Context) {
-            val channel = MethodChannel(messenger, "flutter_reactive_ble_method")
+            val channel = MethodChannel(messenger, "next_ble_method")
             channel.setMethodCallHandler(NextBlePlugin())
             pluginController = PluginController()
             pluginController.initialize(messenger, context)
