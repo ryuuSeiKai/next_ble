@@ -1,4 +1,15 @@
-///uid>(
+///
+import 'dart:core' as $core;
+
+import 'package:protobuf/protobuf.dart' as $pb;
+
+class ScanForDevicesRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'ScanForDevicesRequest',
+      createEmptyInstance: create)
+    ..pc<Uuid>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
