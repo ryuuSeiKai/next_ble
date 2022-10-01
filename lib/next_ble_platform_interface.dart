@@ -196,4 +196,12 @@ abstract class NextBlePlatform extends PlatformInterface {
   Future<bool?> setName({required String name}) {
     throw UnimplementedError('setName has not been implemented.');
   }
+
+  Future<void> startGattServer() {
+    throw UnimplementedError('startGattServer has not been implemented.');
+  }
+
+  Future<void> stopGattServer() {
+    throw UnimplementedError('stopGattServer has not been implemented.');
+  }
 }

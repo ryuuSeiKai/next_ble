@@ -366,4 +366,14 @@ class NextBle {
     await initialize();
     return await _blePlatform.setName(name: name);
   }
+
+  Future<void> startGatt() async {
+    await initialize();
+    await _blePlatform.startGattServer();
+  }
+
+  Future<void> stopGatt() async {
+    await initialize();
+    await _blePlatform.stopGattServer();
+  }
 }

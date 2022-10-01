@@ -48,6 +48,7 @@ In the **android/app/src/main/AndroidManifest.xml** let’s add:
         android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!-- API 31+ -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
 ```
@@ -118,3 +119,5 @@ In the **ios/Runner/Info.plist** let’s add:
 | getName             | ✅      |     | Get name bluetooth your device.                                                                       |
 | setName             | ✅      |     | Change name bluetooth your device.                                                                    |
 | requestDiscoverable | ✅      |     | Request use on Android with duration,<br />during that time otherdevices can<br /> detect your device |
+| startGatt           | ✅      |     | Start Gatt Server                                                                                     |
+| stopGatt            | ✅      |     | Stop Gatt Server                                                                                     |

@@ -78,10 +78,22 @@ class _ExtensionsBLEState extends State<ExtensionsBLE> {
                 },
                 child: const Text("Set Name"),
               ),
+              ElevatedButton(
+                onPressed: () async {
+                  await nextBle.startGatt();
+                },
+                child: const Text("Start Gatt"),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    nextBle.stopGatt();
+    super.dispose();
   }
 }

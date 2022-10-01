@@ -6,6 +6,7 @@ import 'package:next_ble_example/src/ble/ble_scanner.dart';
 import 'package:next_ble_example/src/ble/ble_status_monitor.dart';
 import 'package:next_ble_example/src/ui/ble_status_screen.dart';
 import 'package:next_ble_example/src/ui/device_list.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 
 import 'src/ble/ble_logger.dart';
@@ -69,10 +70,29 @@ void main() {
   );
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      await [
+        Permission.bluetooth,
+        Permission.bluetoothConnect,
+        Permission.bluetoothAdvertise,
+        Permission.bluetoothScan,
+        Permission.location,
+      ].request();
+    });
+  }
 
   @override
   Widget build(BuildContext context) => Consumer<BleStatus?>(

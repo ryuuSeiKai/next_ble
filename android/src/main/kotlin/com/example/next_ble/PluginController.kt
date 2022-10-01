@@ -45,6 +45,8 @@ class PluginController {
             "setName" to this::setName,
             "requestDiscoverable" to this::requestDiscoverable,
             "startDiscovery" to this::startDiscovery,
+            "startGatt" to this::startGatt,
+            "stopGatt" to this::stopGatt,
         )
 
 
@@ -69,7 +71,6 @@ class PluginController {
     fun setActivity(activity: Activity, context: Context) {
         this.activity = activity
         extensionBLEPlugin = ExtensionBLEPlugin(context, activity)
-        Log.d(tag, activity.toString())
     }
 
     internal fun initialize(messenger: BinaryMessenger, context: Context) {
@@ -351,5 +352,14 @@ class PluginController {
 
     private fun startDiscovery(call: MethodCall, result: MethodChannel.Result) {
         extensionBLEPlugin.startDiscovery(result)
+    }
+
+
+    private fun startGatt(call: MethodCall, result: MethodChannel.Result) {
+        extensionBLEPlugin.startGatt()
+    }
+
+    private fun stopGatt(call: MethodCall, result: MethodChannel.Result) {
+        extensionBLEPlugin.destroyGatt()
     }
 }

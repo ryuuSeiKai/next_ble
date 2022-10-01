@@ -46,7 +46,6 @@ class MainActivity : FlutterActivity() {
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT)
         } else {
             Log.d(tag, "Bluetooth enabled...starting services")
-            startAdvertising()
             startServer()
         }
     }/* Local UI */

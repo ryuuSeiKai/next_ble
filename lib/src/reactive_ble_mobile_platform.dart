@@ -254,6 +254,16 @@ class NextBleMobilePlatform extends NextBlePlatform {
       "name": name,
     });
   }
+
+  @override
+  Future<void> startGattServer() async {
+    return await _bleMethodChannel.invokeMethod('startGatt');
+  }
+
+  @override
+  Future<void> stopGattServer() async {
+    return await _bleMethodChannel.invokeMethod('stopGatt');
+  }
 }
 
 class NextBleMobilePlatformFactory {
