@@ -14,14 +14,14 @@ import java.util.UUID
 @Suppress("TooManyFunctions")
 interface BleClient {
 
-    val connectionUpdateSubject: BehaviorSubject<com.example.next_ble.ble.ConnectionUpdate>
+    val connectionUpdateSubject: BehaviorSubject<ConnectionUpdate>
 
     fun initializeClient()
     fun scanForDevices(
         services: List<ParcelUuid>,
         scanMode: ScanMode,
         requireLocationServicesEnabled: Boolean
-    ): Observable<com.example.next_ble.ble.ScanInfo>
+    ): Observable<ScanInfo>
 
     fun connectToDevice(deviceId: String, timeout: Duration)
     fun disconnectDevice(deviceId: String)

@@ -24,9 +24,4 @@ class MethodChannelNextBle extends NextBlePlatform {
   Stream<dynamic> getSnapshotDiscovered() {
     return discoveredDevicesChannel.receiveBroadcastStream().cast();
   }
-
-  startbrosing() {
-    // TODO: implement startbrosing
-    throw UnimplementedError();
-  }
 }

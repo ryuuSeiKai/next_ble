@@ -136,7 +136,7 @@ final class PluginController {
         completion(.success(nil))
     }
 
-    func deinitialize(name: String, completion: @escaping PlatformMethodCompletionHandler) {
+    func disposeClient(name: String, completion: @escaping PlatformMethodCompletionHandler) {
         guard let central = central
         else {
             completion(.failure(PluginError.notInitialized.asFlutterError))

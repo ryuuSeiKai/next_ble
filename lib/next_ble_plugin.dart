@@ -151,7 +151,7 @@ class NextBle {
   Future<void> deinitialize() async {
     if (_initialization != null) {
       _initialization = null;
-      await _blePlatform.deinitialize();
+      await _blePlatform.disposeClient();
     }
   }
 
@@ -346,4 +346,24 @@ class NextBle {
   /// Use [LogLevel.verbose] for full debug output. Make sure to  run this only for debugging purposes.
   /// Use [LogLevel.none] to disable logging. This is also the default.
   set logLevel(LogLevel logLevel) => _debugLogger.logLevel = logLevel;
+
+  Future<void> openSetting() async {
+    await initialize();
+    await _blePlatform.openSetting();
+  }
+
+  Future<void> requestDiscoverable({required int duration}) async {
+    await initialize();
+    await _blePlatform.requestDiscoverable(duration);
+  }
+
+  Future<String?> getName() async {
+    await initialize();
+    return await _blePlatform.getName();
+  }
+
+  Future<bool?> setName({required String name}) async {
+    await initialize();
+    return await _blePlatform.setName(name: name);
+  }
 }

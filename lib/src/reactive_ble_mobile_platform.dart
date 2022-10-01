@@ -65,8 +65,8 @@ class NextBleMobilePlatform extends NextBlePlatform {
   Future<void> initialize() => _bleMethodChannel.invokeMethod("initialize");
 
   @override
-  Future<void> deinitialize() =>
-      _bleMethodChannel.invokeMethod<void>("deinitialize");
+  Future<void> disposeClient() =>
+      _bleMethodChannel.invokeMethod<void>("disposeClient");
 
   @override
   Stream<void> scanForDevices({
@@ -230,6 +230,30 @@ class NextBleMobilePlatform extends NextBlePlatform {
                 .writeToBuffer(),
           )
           .then((data) => _protobufConverter.discoveredServicesFrom(data!));
+
+  @override
+  Future<void> openSetting() async {
+    await _bleMethodChannel.invokeMethod('openSetting');
+  }
+
+  @override
+  Future<void> requestDiscoverable(int duration) async {
+    await _bleMethodChannel.invokeMethod('requestDiscoverable', {
+      "duration": duration,
+    });
+  }
+
+  @override
+  Future<String?> getName() async {
+    return await _bleMethodChannel.invokeMethod('getName');
+  }
+
+  @override
+  Future<bool?> setName({required String name}) async {
+    return await _bleMethodChannel.invokeMethod('setName', {
+      "name": name,
+    });
+  }
 }
 
 class NextBleMobilePlatformFactory {

@@ -1,6 +1,8 @@
 package com.example.next_ble
 
+import android.app.Activity
 import android.content.Context
+import android.util.Log
 import com.example.next_ble.ble.RequestConnectionPriorityFailed
 import com.example.next_ble.channelhandlers.CharNotificationHandler
 import com.example.next_ble.channelhandlers.DeviceConnectionHandler
@@ -16,15 +18,16 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
-import java.util.UUID
+import java.util.*
 import com.example.next_ble.ProtobufModel as pb
 
 @Suppress("TooManyFunctions")
 class PluginController {
+
     private val pluginMethods =
         mapOf<String, (call: MethodCall, result: MethodChannel.Result) -> Unit>(
             "initialize" to this::initializeClient,
-            "deinitialize" to this::deinitializeClient,
+            "disposeClient" to this::disposeClient,
             "scanForDevices" to this::scanForDevices,
             "connectToDevice" to this::connectToDevice,
             "clearGattCache" to this::clearGattCache,
@@ -36,21 +39,38 @@ class PluginController {
             "stopNotifications" to this::stopNotifications,
             "negotiateMtuSize" to this::negotiateMtuSize,
             "requestConnectionPriority" to this::requestConnectionPriority,
-            "discoverServices" to this::discoverServices
+            "discoverServices" to this::discoverServices,
+            "openSetting" to this::openSetting,
+            "getName" to this::getName,
+            "setName" to this::setName,
+            "requestDiscoverable" to this::requestDiscoverable,
+            "startDiscovery" to this::startDiscovery,
         )
 
-    lateinit var bleClient: com.example.next_ble.ble.BleClient
 
-    lateinit var scanchannel: EventChannel
-    lateinit var deviceConnectionChannel: EventChannel
-    lateinit var charNotificationChannel: EventChannel
+    private lateinit var bleClient: com.example.next_ble.ble.BleClient
 
-    lateinit var scandevicesHandler: ScanDevicesHandler
-    lateinit var deviceConnectionHandler: DeviceConnectionHandler
-    lateinit var charNotificationHandler: CharNotificationHandler
+    private lateinit var scanchannel: EventChannel
+
+    private lateinit var deviceConnectionChannel: EventChannel
+    private lateinit var charNotificationChannel: EventChannel
+
+    private lateinit var scanDevicesHandler: ScanDevicesHandler
+    private lateinit var deviceConnectionHandler: DeviceConnectionHandler
+    private lateinit var charNotificationHandler: CharNotificationHandler
 
     private val uuidConverter = UuidConverter()
     private val protoConverter = ProtobufMessageConverter()
+
+    private lateinit var extensionBLEPlugin: ExtensionBLEPlugin
+
+    private lateinit var activity: Activity
+
+    fun setActivity(activity: Activity, context: Context) {
+        this.activity = activity
+        extensionBLEPlugin = ExtensionBLEPlugin(context, activity)
+        Log.d(tag, activity.toString())
+    }
 
     internal fun initialize(messenger: BinaryMessenger, context: Context) {
         bleClient = com.example.next_ble.ble.ReactiveBleClient(context)
@@ -60,12 +80,12 @@ class PluginController {
         charNotificationChannel = EventChannel(messenger, "next_ble_char_update")
         val bleStatusChannel = EventChannel(messenger, "next_ble_status")
 
-        scandevicesHandler = ScanDevicesHandler(bleClient)
+        scanDevicesHandler = ScanDevicesHandler(bleClient)
         deviceConnectionHandler = DeviceConnectionHandler(bleClient)
         charNotificationHandler = CharNotificationHandler(bleClient)
         val bleStatusHandler = BleStatusHandler(bleClient)
 
-        scanchannel.setStreamHandler(scandevicesHandler)
+        scanchannel.setStreamHandler(scanDevicesHandler)
         deviceConnectionChannel.setStreamHandler(deviceConnectionHandler)
         charNotificationChannel.setStreamHandler(charNotificationHandler)
         bleStatusChannel.setStreamHandler(bleStatusHandler)
@@ -80,15 +100,14 @@ class PluginController {
         result.success(null)
     }
 
-    private fun deinitializeClient(call: MethodCall, result: MethodChannel.Result) {
-        scandevicesHandler.stopDeviceScan()
+    private fun disposeClient(call: MethodCall, result: MethodChannel.Result) {
+        scanDevicesHandler.stopDeviceScan()
         deviceConnectionHandler.disconnectAll()
         result.success(null)
     }
 
     private fun scanForDevices(call: MethodCall, result: MethodChannel.Result) {
-
-        scandevicesHandler.prepareScan(pb.ScanForDevicesRequest.parseFrom(call.arguments as ByteArray))
+        scanDevicesHandler.prepareScan(pb.ScanForDevicesRequest.parseFrom(call.arguments as ByteArray))
         result.success(null)
     }
 
@@ -312,5 +331,25 @@ class PluginController {
                 result.error("service_discovery_failure", throwable.message, null)
             })
             .discard()
+    }
+
+    private fun openSetting(call: MethodCall, result: MethodChannel.Result) {
+        extensionBLEPlugin.openSetting()
+    }
+
+    private fun getName(call: MethodCall, result: MethodChannel.Result) {
+        extensionBLEPlugin.getName(result)
+    }
+
+    private fun setName(call: MethodCall, result: MethodChannel.Result) {
+        extensionBLEPlugin.setName(call, result)
+    }
+
+    private fun requestDiscoverable(call: MethodCall, result: MethodChannel.Result) {
+        extensionBLEPlugin.requestDiscoverable(call, result)
+    }
+
+    private fun startDiscovery(call: MethodCall, result: MethodChannel.Result) {
+        extensionBLEPlugin.startDiscovery(result)
     }
 }

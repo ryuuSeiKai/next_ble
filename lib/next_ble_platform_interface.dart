@@ -63,7 +63,7 @@ abstract class NextBlePlatform extends PlatformInterface {
   }
 
   /// De-initializes the ble plugin platform specific counter parts.
-  Future<void> deinitialize() {
+  Future<void> disposeClient() {
     throw UnimplementedError('deInitialize() has not been implemented.');
   }
 
@@ -179,5 +179,21 @@ abstract class NextBlePlatform extends PlatformInterface {
       String deviceId, ConnectionPriority priority) {
     throw UnimplementedError(
         'requesConnectionPriority has not been implemented.');
+  }
+
+  Future<void> openSetting() {
+    throw UnimplementedError('openSetting has not been implemented.');
+  }
+
+  Future<void> requestDiscoverable(int duration) {
+    throw UnimplementedError('requestDiscovery has not been implemented.');
+  }
+
+  Future<String?> getName() {
+    throw UnimplementedError('getName has not been implemented.');
+  }
+
+  Future<bool?> setName({required String name}) {
+    throw UnimplementedError('setName has not been implemented.');
   }
 }

@@ -142,7 +142,7 @@ class NextBle {
   Future<void> deinitialize() async {
     if (_initialization != null) {
       _initialization = null;
-      await _blePlatform.deinitialize();
+      await _blePlatform.disposeClient();
     }
   }
 

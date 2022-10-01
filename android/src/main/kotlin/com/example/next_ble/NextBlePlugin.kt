@@ -2,32 +2,39 @@ package com.example.next_ble
 
 import android.content.Context
 import io.flutter.embedding.engine.plugins.FlutterPlugin
-import io.flutter.plugin.common.BinaryMessenger
+import io.flutter.embedding.engine.plugins.activity.ActivityAware
+import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 
-class NextBlePlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
+class NextBlePlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityAware {
+    lateinit var pluginController: PluginController
+    lateinit var context: Context
+
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        initalizePlugin(binding.binaryMessenger, binding.applicationContext)
+        pluginController = PluginController()
+
+        val channel = MethodChannel(binding.binaryMessenger, "next_ble_method")
+        channel.setMethodCallHandler(this)
+        pluginController.initialize(binding.binaryMessenger, binding.applicationContext)
+        context = binding.applicationContext
     }
 
-    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        // deinitalize logic
-    }
-
-    companion object {
-        lateinit var pluginController: PluginController
-
-        @JvmStatic
-        private fun initalizePlugin(messenger: BinaryMessenger, context: Context) {
-            val channel = MethodChannel(messenger, "next_ble_method")
-            channel.setMethodCallHandler(NextBlePlugin())
-            pluginController = PluginController()
-            pluginController.initialize(messenger, context)
-        }
-    }
+    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {}
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         pluginController.execute(call, result)
     }
+
+    override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+        pluginController.setActivity(binding.activity, context)
+    }
+
+    override fun onDetachedFromActivityForConfigChanges() {}
+
+    override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+        pluginController.setActivity(binding.activity, context)
+    }
+
+    override fun onDetachedFromActivity() {}
 }

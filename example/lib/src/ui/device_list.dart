@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:next_ble/next_ble.dart';
 import 'package:next_ble_example/src/ble/ble_scanner.dart';
+import 'package:next_ble_example/src/ui/extension_ble/extension_ble.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets.dart';
@@ -161,6 +162,16 @@ class _DeviceListState extends State<_DeviceList> {
               ),
             ),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const ExtensionsBLE(),
+              ),
+            );
+          },
+          child: const Icon(Icons.rocket_launch),
         ),
       );
 }
