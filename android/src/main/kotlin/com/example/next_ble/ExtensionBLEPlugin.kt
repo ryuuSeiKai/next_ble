@@ -172,7 +172,6 @@ class ExtensionBLEPlugin(context: Context, activity: Activity) {
             bluetoothAdapter!!.enable()
         } else {
             Log.d(tag, "Bluetooth enabled...starting services")
-            bluetoothManager = activity.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
             val requestCode = 1
             val discoverableIntent: Intent =
                 Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE).apply {
@@ -420,7 +419,6 @@ class ExtensionBLEPlugin(context: Context, activity: Activity) {
             val data = AdvertiseData.Builder()
                 .setIncludeDeviceName(true)
                 .setIncludeTxPowerLevel(false)
-//                .addServiceData(ParcelUuid(TimeProfile.TIME_SERVICE), "THO".toByteArray())
                 .addServiceUuid(ParcelUuid(TimeProfile.TIME_SERVICE))
                 .build()
 

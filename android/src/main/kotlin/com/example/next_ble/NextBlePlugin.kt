@@ -1,6 +1,8 @@
 package com.example.next_ble
 
+import android.bluetooth.BluetoothAdapter
 import android.content.Context
+import android.content.Intent
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
