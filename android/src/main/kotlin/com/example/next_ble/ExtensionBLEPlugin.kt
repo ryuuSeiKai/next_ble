@@ -60,6 +60,7 @@ class ExtensionBLEPlugin(context: Context, activity: Activity) {
         })
     }
 
+    @SuppressLint("MissingPermission")
     fun setName(call: MethodCall, result: MethodChannel.Result) {
         if (!call.hasArgument("name")) {
             result.error("invalid_argument", "argument 'name' not found", null)
@@ -67,13 +68,6 @@ class ExtensionBLEPlugin(context: Context, activity: Activity) {
 
         try {
             val name: String? = call.argument("name")
-            if (ActivityCompat.checkSelfPermission(
-                    context,
-                    Manifest.permission.BLUETOOTH_CONNECT
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                return
-            }
             result.success(bluetoothAdapter!!.setName(name))
         } catch (ex: java.lang.ClassCastException) {
             result.error("invalid_argument", "'name' argument is required to be string", null)
