@@ -9,9 +9,6 @@ import 'package:next_ble/src/debug_logger.dart';
 import 'package:next_ble/src/device_connector.dart';
 import 'package:next_ble/src/device_scanner.dart';
 import 'package:next_ble/src/discovered_devices_registry.dart';
-import 'package:next_ble/src/model/ble_status.dart';
-import 'package:next_ble/src/model/characteristic_value.dart';
-import 'package:next_ble/src/model/connection_state_update.dart';
 import 'package:next_ble/src/models.dart';
 import 'package:next_ble/src/reactive_ble_mobile_platform.dart';
 import 'package:next_ble/src/rx_ext/repeater.dart';
@@ -31,14 +28,14 @@ class NextBle {
     required ConnectedDeviceOperation connectedDeviceOperation,
     required Logger debugLogger,
     required Future<void> initialization,
-    required NextBlePlatform NextBlePlatform,
+    required NextBlePlatform nextBlePlatform,
   }) {
     _deviceScanner = deviceScanner;
     _deviceConnector = deviceConnector;
     _connectedDeviceOperator = connectedDeviceOperation;
     _debugLogger = debugLogger;
     _initialization = initialization;
-    _blePlatform = NextBlePlatform;
+    _blePlatform = nextBlePlatform;
     _trackStatus();
   }
 
@@ -101,6 +98,7 @@ class NextBle {
 
   Future<String?> getCurrentVersion() async {
     _blePlatform = NextBlePlatform.instance;
+    return null;
 
     // _blePlatform.getCurrentVersion();
   }
@@ -117,8 +115,7 @@ class NextBle {
         print,
       );
 
-      NextBlePlatform.instance =
-          const NextBleMobilePlatformFactory().create() as NextBlePlatform;
+      NextBlePlatform.instance = const NextBleMobilePlatformFactory().create();
 
       _blePlatform = NextBlePlatform.instance;
 
@@ -154,7 +151,7 @@ class NextBle {
   Future<void> deinitialize() async {
     if (_initialization != null) {
       _initialization = null;
-      await _blePlatform.deinitialize();
+      await _blePlatform.disposeClient();
     }
   }
 
@@ -349,4 +346,34 @@ class NextBle {
   /// Use [LogLevel.verbose] for full debug output. Make sure to  run this only for debugging purposes.
   /// Use [LogLevel.none] to disable logging. This is also the default.
   set logLevel(LogLevel logLevel) => _debugLogger.logLevel = logLevel;
+
+  Future<void> openSetting() async {
+    await initialize();
+    await _blePlatform.openSetting();
+  }
+
+  Future<void> requestDiscoverable({required int duration}) async {
+    await initialize();
+    await _blePlatform.requestDiscoverable(duration);
+  }
+
+  Future<String?> getName() async {
+    await initialize();
+    return await _blePlatform.getName();
+  }
+
+  Future<bool?> setName({required String name}) async {
+    await initialize();
+    return await _blePlatform.setName(name: name);
+  }
+
+  Future<void> startGatt() async {
+    await initialize();
+    await _blePlatform.startGattServer();
+  }
+
+  Future<void> stopGatt() async {
+    await initialize();
+    await _blePlatform.stopGattServer();
+  }
 }

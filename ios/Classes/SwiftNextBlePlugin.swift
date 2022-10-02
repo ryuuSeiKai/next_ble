@@ -133,7 +133,7 @@ public class SwiftNextBlePlugin: NSObject, FlutterPlugin, CBCentralManagerDelega
          AnyPlatformMethod(NullaryPlatformMethod(name: "initialize") { name, context, completion in
              context.initialize(name: name, completion: completion)
          }),
-         AnyPlatformMethod(NullaryPlatformMethod(name: "deinitialize") { name, context, completion in
+         AnyPlatformMethod(NullaryPlatformMethod(name: "disposeClient") { name, context, completion in
              context.deinitialize(name: name, completion: completion)
          }),
          AnyPlatformMethod(UnaryPlatformMethod(name: "scanForDevices") { (name, context, args: ScanForDevicesRequest, completion) in

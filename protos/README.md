@@ -1,6 +1,6 @@
 # Protobuf code generation
 
-1. Install the newest `protoc`. It can be done via `brew`: 
+1. Install the newest `protoc`. It can be done via `brew`:
 
 ```sh
 brew install protobuf

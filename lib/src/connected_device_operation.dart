@@ -2,7 +2,6 @@ import 'package:meta/meta.dart';
 import 'package:next_ble/next_ble_platform_interface.dart';
 // import 'package:next_ble/next_ble_platform_interface.dart';
 import 'package:next_ble/src/models.dart';
-import 'package:next_ble/src/reactive_ble_platform_interface.dart';
 import 'package:next_ble/src/rx_ext/repeater.dart';
 
 abstract class ConnectedDeviceOperation {

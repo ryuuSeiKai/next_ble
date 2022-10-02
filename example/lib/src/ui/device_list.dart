@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:next_ble/next_ble.dart';
 import 'package:next_ble_example/src/ble/ble_scanner.dart';
+import 'package:next_ble_example/src/ui/extension_ble/extension_ble.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets.dart';
@@ -13,7 +14,7 @@ class DeviceListScreen extends StatelessWidget {
   Widget build(BuildContext context) => Consumer2<BleScanner, BleScannerState?>(
         builder: (_, bleScanner, bleScannerState, __) => _DeviceList(
           scannerState: bleScannerState ??
-              BleScannerState(
+              const BleScannerState(
                 discoveredDevices: [],
                 scanIsInProgress: false,
               ),
@@ -102,17 +103,17 @@ class _DeviceListState extends State<_DeviceList> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ElevatedButton(
-                        child: const Text('Scan'),
                         onPressed: !widget.scannerState.scanIsInProgress &&
                                 _isValidUuidInput()
                             ? _startScanning
                             : null,
+                        child: const Text('Scan'),
                       ),
                       ElevatedButton(
-                        child: const Text('Stop'),
                         onPressed: widget.scannerState.scanIsInProgress
                             ? widget.stopScan
                             : null,
+                        child: const Text('Stop'),
                       ),
                     ],
                   ),
@@ -161,6 +162,16 @@ class _DeviceListState extends State<_DeviceList> {
               ),
             ),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const ExtensionsBLE(),
+              ),
+            );
+          },
+          child: const Icon(Icons.rocket_launch),
         ),
       );
 }

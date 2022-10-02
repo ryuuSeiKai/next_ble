@@ -27,9 +27,9 @@ abstract class $ConnectionStateUpdate {
   ConnectionStateUpdate copyUsing(
       void Function(ConnectionStateUpdate$Change change) mutator) {
     final change = ConnectionStateUpdate$Change._(
-      this.deviceId,
-      this.connectionState,
-      this.failure,
+      deviceId,
+      connectionState,
+      failure,
     );
     mutator(change);
     return ConnectionStateUpdate(

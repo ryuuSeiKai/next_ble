@@ -1,3 +1,5 @@
+package com.example.next_ble
+
 /*
  * Copyright 2018, The Android Open Source Project
  *
@@ -14,8 +16,6 @@
  * limitations under the License.
  */
 
-package com.example.next_ble
-
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattDescriptor
 import android.bluetooth.BluetoothGattService
@@ -31,10 +31,13 @@ object TimeProfile {
 
     /* Current Time Service UUID */
     val TIME_SERVICE: UUID = UUID.fromString("00001805-0000-1000-8000-00805f9b34fb")
+
     /* Mandatory Current Time Information Characteristic */
     val CURRENT_TIME: UUID = UUID.fromString("00002a2b-0000-1000-8000-00805f9b34fb")
+
     /* Optional Local Time Information Characteristic */
     val LOCAL_TIME_INFO: UUID = UUID.fromString("00002a0f-0000-1000-8000-00805f9b34fb")
+
     /* Mandatory Client Characteristic Config Descriptor */
     val CLIENT_CONFIG: UUID = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb")
 
@@ -71,24 +74,32 @@ object TimeProfile {
      * Current Time Service.
      */
     fun createTimeService(): BluetoothGattService {
-        val service = BluetoothGattService(TIME_SERVICE,
-                BluetoothGattService.SERVICE_TYPE_PRIMARY)
+        val service = BluetoothGattService(
+            TIME_SERVICE,
+            BluetoothGattService.SERVICE_TYPE_PRIMARY
+        )
 
         // Current Time characteristic
-        val currentTime = BluetoothGattCharacteristic(CURRENT_TIME,
-                //Read-only characteristic, supports notifications
-                BluetoothGattCharacteristic.PROPERTY_READ or BluetoothGattCharacteristic.PROPERTY_NOTIFY,
-                BluetoothGattCharacteristic.PERMISSION_READ)
-        val configDescriptor = BluetoothGattDescriptor(CLIENT_CONFIG,
-                //Read/write descriptor
-                BluetoothGattDescriptor.PERMISSION_READ or BluetoothGattDescriptor.PERMISSION_WRITE)
+        val currentTime = BluetoothGattCharacteristic(
+            CURRENT_TIME,
+            //Read-only characteristic, supports notifications
+            BluetoothGattCharacteristic.PROPERTY_READ or BluetoothGattCharacteristic.PROPERTY_NOTIFY,
+            BluetoothGattCharacteristic.PERMISSION_READ
+        )
+        val configDescriptor = BluetoothGattDescriptor(
+            CLIENT_CONFIG,
+            //Read/write descriptor
+            BluetoothGattDescriptor.PERMISSION_READ or BluetoothGattDescriptor.PERMISSION_WRITE
+        )
         currentTime.addDescriptor(configDescriptor)
 
         // Local Time Information characteristic
-        val localTime = BluetoothGattCharacteristic(LOCAL_TIME_INFO,
-                //Read-only characteristic
-                BluetoothGattCharacteristic.PROPERTY_READ,
-                BluetoothGattCharacteristic.PERMISSION_READ)
+        val localTime = BluetoothGattCharacteristic(
+            LOCAL_TIME_INFO,
+            //Read-only characteristic
+            BluetoothGattCharacteristic.PROPERTY_READ,
+            BluetoothGattCharacteristic.PERMISSION_READ
+        )
 
         service.addCharacteristic(currentTime)
         service.addCharacteristic(localTime)
@@ -142,7 +153,8 @@ object TimeProfile {
         val field = ByteArray(2)
 
         // Time zone
-        val zoneOffset = time.get(Calendar.ZONE_OFFSET) / FIFTEEN_MINUTE_MILLIS // 15 minute intervals
+        val zoneOffset =
+            time.get(Calendar.ZONE_OFFSET) / FIFTEEN_MINUTE_MILLIS // 15 minute intervals
         field[0] = zoneOffset.toByte()
 
         // DST Offset

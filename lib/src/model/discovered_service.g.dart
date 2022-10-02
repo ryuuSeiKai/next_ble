@@ -30,10 +30,10 @@ abstract class $DiscoveredService {
   DiscoveredService copyUsing(
       void Function(DiscoveredService$Change change) mutator) {
     final change = DiscoveredService$Change._(
-      this.serviceId,
-      this.characteristicIds,
-      this.characteristics,
-      this.includedServices,
+      serviceId,
+      characteristicIds,
+      characteristics,
+      includedServices,
     );
     mutator(change);
     return DiscoveredService(
