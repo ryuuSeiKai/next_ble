@@ -84,13 +84,13 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      await [
-        Permission.bluetooth,
-        Permission.bluetoothConnect,
-        Permission.bluetoothAdvertise,
-        Permission.bluetoothScan,
-        Permission.location,
-      ].request();
+      await Permission.bluetooth.request();
+      await Permission.bluetoothConnect.request();
+      await Permission.bluetoothAdvertise.request();
+      await Permission.bluetoothScan.request();
+
+      await Permission.location.request();
+      await Permission.locationAlways.request();
     });
   }
 
