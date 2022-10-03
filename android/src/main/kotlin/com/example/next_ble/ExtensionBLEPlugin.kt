@@ -185,14 +185,17 @@ class ExtensionBLEPlugin(context: Context, activity: Activity) {
     }
 
     fun destroyGatt() {
-        activity.unregisterReceiver(timeReceiver)
+        try {
+            activity.unregisterReceiver(timeReceiver)
+            activity.unregisterReceiver(bluetoothReceiver)
+        } catch (e: Exception) {
+
+        }
         val bluetoothAdapter = bluetoothManager.adapter
         if (bluetoothAdapter.isEnabled) {
             stopServer()
             stopAdvertising()
         }
-
-        activity.unregisterReceiver(bluetoothReceiver)
     }
 
     /**

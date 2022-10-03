@@ -6,7 +6,6 @@ import 'package:next_ble_example/src/ble/ble_scanner.dart';
 import 'package:next_ble_example/src/ble/ble_status_monitor.dart';
 import 'package:next_ble_example/src/ui/ble_status_screen.dart';
 import 'package:next_ble_example/src/ui/device_list.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 
 import 'src/ble/ble_logger.dart';
@@ -84,13 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      await Permission.bluetooth.request();
-      await Permission.bluetoothConnect.request();
-      await Permission.bluetoothAdvertise.request();
-      await Permission.bluetoothScan.request();
-
-      await Permission.location.request();
-      await Permission.locationAlways.request();
+      await NextBle.requestPermission();
     });
   }
 

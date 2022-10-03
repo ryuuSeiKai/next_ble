@@ -34,18 +34,19 @@ We need to add the permission to use Bluetooth and access location:
 
 In the **android/app/src/main/AndroidManifest.xml** let’s add:
 
-```manifest
-<!-- required for API 18 - 30 -->
+```xml
+    <!-- required for API 18 - 30 -->
     <uses-permission
-        android:name="android.permission.BLUETOOTH" />
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
     <uses-permission
-        android:name="android.permission.BLUETOOTH_ADMIN"/>
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
 
     <!-- required for API 23 - 30 -->
-    <uses-permission
-        android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission
-        android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <!-- API 31+ -->
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
@@ -74,6 +75,7 @@ In the **ios/Runner/Info.plist** let’s add:
 ## Reference
 
 ### FlutterBlue API
+
 
 |             | Android | iOS | Description                                        |
 | ------------- | --------- | ----- | ---------------------------------------------------- |
@@ -114,10 +116,11 @@ In the **ios/Runner/Info.plist** let’s add:
 ### Next BLE API
 
 |                     | Android | iOS | Description                                                                                           |
-| --------------------- | --------- | ----- | ------------------------------------------------------------------------------------------------|
+| ------------------- | ------- | ----- | ------------------------------------------------------------------------------------------------------- |
 | openSetting         | ✅      |     | Open the operating system bluetooth settings screen                                                   |
 | getName             | ✅      |     | Get name bluetooth your device.                                                                       |
 | setName             | ✅      |     | Change name bluetooth your device.                                                                    |
 | requestDiscoverable | ✅      |     | Request use on Android with duration,<br />during that time otherdevices can<br /> detect your device |
 | startGatt           | ✅      |     | Start Gatt Server                                                                                     |
-| stopGatt            | ✅      |     | Stop Gatt Server                                                                                     |
+| stopGatt            | ✅      |     | Stop Gatt Server                                                                                      |
+| requestPermission   | ✅      |     |                                                                                       |

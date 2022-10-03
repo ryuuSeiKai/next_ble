@@ -164,7 +164,7 @@ class _DeviceListState extends State<_DeviceList> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
+          onPressed: () async {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => const ExtensionsBLE(),

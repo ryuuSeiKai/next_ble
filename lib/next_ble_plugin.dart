@@ -1,6 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:device_info/device_info.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:next_ble/next_ble.dart';
 import 'package:next_ble/next_ble_platform_interface.dart';
@@ -12,11 +16,35 @@ import 'package:next_ble/src/discovered_devices_registry.dart';
 import 'package:next_ble/src/models.dart';
 import 'package:next_ble/src/reactive_ble_mobile_platform.dart';
 import 'package:next_ble/src/rx_ext/repeater.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 /// [NextBle] is the facade of the library. Its interface allows to
 /// perform all the supported BLE operations.
 class NextBle {
   static final NextBle _sharedInstance = NextBle._();
+
+  static Future<bool> requestPermission() async {
+    List<Permission> requestPermissions = [
+      Permission.bluetoothScan,
+      Permission.bluetoothAdvertise,
+      Permission.bluetoothConnect,
+      Permission.location,
+    ];
+
+    for (Permission element in requestPermissions) {
+      print(await element.status);
+      if (await element.isPermanentlyDenied) {
+        await openAppSettings();
+      } else {
+        await element.request();
+      }
+    }
+
+    if (await Permission.locationAlways.isDenied) {
+      await openAppSettings();
+    }
+    return true;
+  }
 
   factory NextBle() => _sharedInstance;
 
@@ -93,15 +121,6 @@ class NextBle {
   late ConnectedDeviceOperation _connectedDeviceOperator;
   late DeviceScanner _deviceScanner;
   late Logger _debugLogger;
-
-  // sample get ios version
-
-  Future<String?> getCurrentVersion() async {
-    _blePlatform = NextBlePlatform.instance;
-    return null;
-
-    // _blePlatform.getCurrentVersion();
-  }
 
   /// Initializes this [NextBle] instance and its platform-specific
   /// counterparts.
@@ -363,17 +382,34 @@ class NextBle {
   }
 
   Future<bool?> setName({required String name}) async {
-    await initialize();
-    return await _blePlatform.setName(name: name);
+    if (Platform.isAndroid) {
+      await initialize();
+      return await _blePlatform.setName(name: name);
+    }
+    debugPrint("Only Android Platform!");
+    return false;
   }
 
   Future<void> startGatt() async {
-    await initialize();
-    await _blePlatform.startGattServer();
+    if (Platform.isAndroid) {
+      final android = await DeviceInfoPlugin().androidInfo;
+      final name = await getName();
+      await initialize();
+      if (android.version.sdkInt >= 30 && utf8.encode("$name").length > 22) {
+        await setName(name: "$name".substring(0, 22));
+      }
+      await _blePlatform.startGattServer();
+      return;
+    }
+    debugPrint("Only Android Platform!");
   }
 
   Future<void> stopGatt() async {
-    await initialize();
-    await _blePlatform.stopGattServer();
+    if (Platform.isAndroid) {
+      await initialize();
+      await _blePlatform.stopGattServer();
+      return;
+    }
+    debugPrint("Only Android Platform!");
   }
 }

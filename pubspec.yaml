@@ -11,8 +11,11 @@ dependencies:
   flutter:
     sdk: flutter
   functional_data: ^1.0.0
+  permission_handler: ^10.0.2
   plugin_platform_interface: ^2.0.2
   protobuf: ^2.0.0
+  device_info: ^2.0.3
+  device_info_plus: ^4.1.2
 
 dev_dependencies:
   flutter_test:
